@@ -33,8 +33,6 @@ int main() {
     int num;
     char operation[2];
     printMenu();
-    printf("Max value of double is (DBL_MAX): %e\n", DBL_MAX);
-    printf("Min value of double is (DBL_MIN): %e\n", DBL_MIN);
     while (1) {
         printf("Enter operation: ");
 
