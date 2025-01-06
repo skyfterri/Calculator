@@ -17,7 +17,8 @@ The program supports the following operations:
 ### Mathematical Functions:
 - **Square Root (r)**
 - **Logarithm (base 10) (l)**
-- **Trigonometric Operations (input in degrees):**
+
+### Trigonometric Operations (input in degrees):**
   - **Sine (s)**
   - **Cosine (c)**
   - **Tangent (t)**
@@ -40,28 +41,33 @@ The program supports the following operations:
    - For square root (r) and logarithm (l), you'll be asked to input one number.
    - For trigonometric functions (s, c, t, o, e, q), input the angle in degrees.
    - For the factorial (!), provide an integer.
-4. **Get the Result**: The program will calculate and print the result. If there is an error (e.g., division by zero, invalid input, etc.), the program will provide a relevant error message.
-5. **Exit the Calculator**: To exit, type `x`.
+4. **Get the Result**: The program will calculate and print the result.
+5. **Exit the Calculator**: To exit, type x or X.
 
 ## Input Validation Logic
 
 The input validation logic ensures that the program accepts valid operations and numbers from the user. Below is a breakdown of how the program validates operations and numerical inputs:
 
-### 1. **Validate the Operation (isValidOperation)**
+### 1. **Validate the Operation**
+- The operation is validated through functions: isValidOperation and isBufferEmpty.
 - The program checks if the input operation is one of the valid operations: `+`, `-`, `*`, `/`, `%`, `^`, `r`, `l`, `!`, `s`, `c`, `t`, `o`, `e`, `q`, `x`, or `X`.
-- If the input matches any of the above operations, the function returns `1` to indicate a valid operation; otherwise, it returns `0`.
+- If the input matches any of the above operations the program continues as intented, otherwise it prints `"Invalid Operation!"` and continues with next iteration.
 
-### 2. **Validate a Valid Integer Input (getValidInteger)**
-- The function reads the user input as a string.
-- It checks if the input can be successfully converted to an integer.
-- The function ensures that there are no leftover characters in the input buffer after the conversion.
-- If the input is a valid integer, the function returns `1`; otherwise, it returns `0` and prompts the user to input a valid integer again.
+### 2. **Validate the Integer Input**
+- The integer value is validated in the getValidInteger function.
+- Input is read as a string.
+- Successfull conversion from string to a valid integer is checked.
+- If the input is a valid double, the program continues as intented, otherwise it prints `"Invalid Integer!"` and continues with next iteration.
 
-### 3. **Validate a Valid Double Input (getValidDouble)**
-- The function reads the user input as a string.
-- It checks if the input can be successfully converted to a valid double.
-- The function ensures that the input is within the valid range for double values, avoiding overflows and underflows.
-- If the input is valid, the function returns `1`; otherwise, it returns `0` and prompts the user to input a valid double again.
+### 3. **Validate the Double Input**
+- The double value is validated in the getValidDouble by the isValidDouble helper function.
+- Input is read as a string.
+- Successfull conversion from string to a valid double is checked.
+- Input is checked if it is within the valid range for double values, avoiding overflows and underflows.
+- If the input is a valid double, the program continues as intented, otherwise it prints `"Invalid Double!"` and continues with next iteration.
+
+### 4. **Clear Input Buffer**
+   - After any invalid input, the program clears the input buffer to ensure that there are no leftover characters that could interfere with subsequent inputs.
 
 These validation checks ensure that the user provides only valid operations and numeric values, preventing errors during calculations.
 
@@ -117,7 +123,8 @@ The error handling logic in the mathematical functions ensures that incorrect op
 The output is formatted in a readable way:
 
 - For results that are not numbers (NaN), the program will indicate that the result is "Not a Number."
-- For very large or small numbers, the program will display them in scientific notation with precision.
+- For results that overflow and underflow, the program will display the respective response.
+- For very large or small numbers, the program will display them in scientific notation with 15-digit precision.
 - For integer results, the program will display them without decimals.
 - Results that are within the valid range for double values are shown with appropriate formatting.
 
