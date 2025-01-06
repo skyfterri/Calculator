@@ -339,7 +339,7 @@ int getValidInteger(int *num) {
     char *end;
     *num = strtol(input, &end, 10);
     if (*end != '\0') {
-        printf("Invalid integer! Please try again.\n");
+        printf("Invalid integer!\n");
         return 0;  // Return 0 if input is invalid
     }
 
