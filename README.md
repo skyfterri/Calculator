@@ -2,8 +2,10 @@
 
 This program is a Scientific Calculator written in C that supports a variety of mathematical operations, input validation, and error handling. It allows users to perform basic arithmetic operations, power calculations, square roots, logarithms, trigonometric functions, and more, while also handling edge cases like division by zero, negative square roots, and invalid input.
 
-## Features
+### **Compiler Compatibility**
+This code is written in standard C and should work with any C compiler that supports the C99 standard or later.
 
+## Features
 The program supports the following operations:
 
 ### Basic Arithmetic Operations:
