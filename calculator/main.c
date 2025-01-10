@@ -352,7 +352,7 @@ void printMenu() {
     
     // Group 1: Basic Arithmetic Operations
     printf("+ -> Add          - -> Subtract      * -> Multiply\n");
-    printf("/ -> Divide       %% -> Modulus      ^ -> Power\n");
+    printf("/ -> Divide       %% -> Modulus       ^ -> Power\n");
     
     // Group 2: Mathematical Functions
     printf("r -> Square Root  l -> Log (base 10)\n");
