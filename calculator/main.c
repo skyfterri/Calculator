@@ -349,23 +349,22 @@ int getValidInteger(int *num) {
 
 void printMenu() {
     printf("\nScientific Calculator\n");
-    printf("+ -> Add\n");
-    printf("- -> Subtract\n");
-    printf("* -> Multiply\n");
-    printf("/ -> Divide\n");
-    printf("%% -> Modulus\n");
-    printf("^ -> Power\n");
-    printf("r -> Square Root\n");
-    printf("l -> Log (base 10)\n");
-    printf("s -> Sine\n");
-    printf("c -> Cosine\n");
-    printf("t -> Tangent\n");
-    printf("o -> Cotangent\n");
-    printf("e -> Secant\n");
-    printf("q -> Cosecant\n");
-    printf("! -> Factorial\n");
-    printf("x -> Exit\n");
+    
+    // Group 1: Basic Arithmetic Operations
+    printf("+ -> Add          - -> Subtract      * -> Multiply\n");
+    printf("/ -> Divide       %% -> Modulus      ^ -> Power\n");
+    
+    // Group 2: Mathematical Functions
+    printf("r -> Square Root  l -> Log (base 10)\n");
+    
+    // Group 3: Trigonometric Operations (input in degrees)
+    printf("s -> Sine         c -> Cosine        t -> Tangent\n");
+    printf("o -> Cotangent    e -> Secant        q -> Cosecant\n");
+    
+    // Group 4: Factorial and Exit
+    printf("! -> Factorial    x -> Exit\n");
 }
+
 
 void printResult(double result) {
     if (isnan(result))
