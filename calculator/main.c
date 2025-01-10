@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>    // For math operations
-#include <string.h>  // For string comparison
-#include <float.h>   // For DBL_MAX, DBL_MIN
+#include <math.h>
+#include <string.h>
+#include <float.h>
 
-// Mathematical operations
+// 1. Mathematical operations
+
 double add(double a, double b);
 double subtract(double a, double b);
 double multiply(double a, double b);
@@ -16,7 +17,8 @@ double logBase10(double a);
 double trigonometricOperation(double a, char operation);
 long long factorial(int a);
 
-// Input and validation functions
+// 2. Input and validation functions
+
 int clearInputBuffer();             // Function to clear any leftover characters in the input buffer
 int isBufferEmpty();                // Function to check if the input buffer is empty
 int isValidOperation(char op[]);    // Helper function to validate operation input
@@ -24,7 +26,8 @@ int isValidDouble(const char *str); // Helper function to validate if a string i
 int getValidDouble(double *num);    // Function to get valid number input
 int getValidInteger(int *num);      // Function to get a valid integer input for factorial
 
-// Output functions
+// 3. Output functions
+
 void printMenu();
 void printResult(double result);
 
@@ -35,18 +38,15 @@ int main() {
     printMenu();
     while (1) {
         printf("Enter operation: ");
-
         if (scanf(" %1s", operation) != 1 || !isValidOperation(operation) || !isBufferEmpty()) {
             printf("Invalid operation!\n");
             clearInputBuffer();
             continue;
         }
-
         if (strcmp(operation, "x") == 0 || strcmp(operation, "X") == 0) {
             printf("Exiting the calculator.\n");
             break;  // Exit the program
         }
-
         switch (operation[0]) {  // We only need to check the first character
             case '+': case '-': case '*': case '/': case '%': case '^':
                 // Handling addition, subtraction, multiplication, division, modulus, exponentiation
@@ -55,25 +55,21 @@ int main() {
                 printf("Enter second double: ");
                 if (!getValidDouble(&num2)) continue;
                 break;
-
             case 'r': case 'l':  // Square root or logarithm operation
                 printf("Enter double: ");
                 if (!getValidDouble(&num1)) continue;
                 break;
-
             case 's': case 'c': case 't': case 'o': case 'e': case 'q':  // Trigonometric operations
                 printf("Enter number for trigonometric operations (in degrees): ");
                 if (!getValidDouble(&num1)) continue;
                 break;
-
             case '!':  // Factorial operation
                 printf("Enter an integer: ");
                 if (!getValidInteger(&num)) continue;
                 break;
             // Default case not needed since operation is checked before switch case
         }
-
-        // Perform the selected operation and print the result
+        // Perform the selected operation
         switch (operation[0]) {  // Again, check only the first character
             case '+':
                 result = add(num1, num2);
@@ -113,7 +109,8 @@ int main() {
     return 0;
 }
 
-// Mathematical operations
+// 1. Mathematical operations
+
 double add(double a, double b) {
     return a + b;
 }
@@ -153,7 +150,6 @@ double power(double a, double b) {
         printf("Error! 0 cannot be raised to a negative power.\n");
         return NAN;
     }
-
     // Case 3: Zero raised to the power of zero (optional: can return 1 or NAN depending on context)
     if (a == 0 && b == 0) {
         printf("Error! 0 raised to the power of 0 is indeterminate.\n");
@@ -212,7 +208,7 @@ double trigonometricOperation(double a, char operation) {
                 return NAN;  // Cosecant is undefined when sin(x) = 0
             }
             return 1.0 / sin(radians);
-        // Default case not needed since it is handled in main switch case
+        // Default case not needed since it is handled in main
     }
 }
 
@@ -234,7 +230,8 @@ long long factorial(int a) {
     }
     return result;
 }
-// Input and validation functions
+
+// 2. Input and validation functions
 
 int clearInputBuffer() {
     int ch;
@@ -272,30 +269,25 @@ int isValidDouble(const char *str) {
     char *end;
     double val =strtod(str, &end);
     // Check if the conversion was successful and the entire string was used
-
     if (*end != '\0') {
         printf("Invalid Double!\n");
         return 0;  // Invalid double if there's anything left in the string
     }
-
     // Check if the value is within the bounds of a valid double
     if (val > DBL_MAX || val < -DBL_MAX) {
         printf("Error: Double is out of range (greater than DBL_MAX or less than -DBL_MAX).\n");
         return 0;  // Invalid if the number is out of bounds
     }
-
     // Check if the value is smaller than DBL_MIN but larger than 0 (subnormal numbers)
     if (val != 0.0 && (val < DBL_MIN && val > 0)) {
         printf("Error: Double is too small (subnormal number).\n");
         return 0;  // Invalid if the value is smaller than DBL_MIN but greater than zero
     }
-
     return 1;  // Valid double if all checks pass
 }
 
 int getValidDouble(double *num) {
     char input[400];  // Buffer to store the user's input as a string
-
     // Read the input as a string
     if (scanf("%399s", input) != 1  || strlen(input)>=399) {
         printf("Invalid input!\n");
@@ -307,34 +299,28 @@ int getValidDouble(double *num) {
         printf("Error: Space and Tab not allowed.\n");
         return 0;  // Return 0 if extra values were detected
     }
-
     // Validate if the input is a valid number
     if (!isValidDouble(input)) {
         return 0;  // Return 0 if input is invalid
     }
-
     // Input is converted to double
     *num = strtod(input, NULL);
-
     return 1;  // Return 1 if the input is valid
 }
 
 int getValidInteger(int *num) {
     char input[400];  // Buffer to store the user's input as a string
-
     // Read the input as a string
     if (scanf("%399s", input) != 1 || strlen(input)>=399) {
         printf("Invalid input!\n");
         clearInputBuffer();
         return 0;  // Return 0 if input is invalid
     }
-
     // Check if there is anything left in the input buffer (e.g., extra spaces or values)
     if (clearInputBuffer()) {
         printf("Error: Space and Tab not allowed.\n");
         return 0;  // Return 0 if extra values were detected
     }
-
     // Validate if the input is a valid integer
     char *end;
     *num = strtol(input, &end, 10);
@@ -342,29 +328,24 @@ int getValidInteger(int *num) {
         printf("Invalid integer!\n");
         return 0;  // Return 0 if input is invalid
     }
-
     return 1;  // Return 1 if the input is valid
 }
-// Output functions
+
+// 3. Output functions
 
 void printMenu() {
     printf("\nScientific Calculator\n");
-    
     // Group 1: Basic Arithmetic Operations
     printf("+ -> Add          - -> Subtract      * -> Multiply\n");
     printf("/ -> Divide       %% -> Modulus       ^ -> Power\n");
-    
     // Group 2: Mathematical Functions
     printf("r -> Square Root  l -> Log (base 10)\n");
-    
     // Group 3: Trigonometric Operations (input in degrees)
     printf("s -> Sine         c -> Cosine        t -> Tangent\n");
     printf("o -> Cotangent    e -> Secant        q -> Cosecant\n");
-    
     // Group 4: Factorial and Exit
     printf("! -> Factorial    x -> Exit\n");
 }
-
 
 void printResult(double result) {
     if (isnan(result))
@@ -380,4 +361,3 @@ void printResult(double result) {
      else
         printf("Result: %f\n", result);
 }
-
