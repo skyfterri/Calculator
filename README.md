@@ -9,30 +9,30 @@ This code is written in standard C and should work with any C compiler that supp
 The program supports the following operations:
 
 ### Basic Arithmetic Operations:
-- **Addition (+)**
-- **Subtraction (-)**
-- **Multiplication (*)**
-- **Division (/)**
-- **Modulus (%)**
-- **Power (^)**
+- Addition (+)
+- Subtraction (-)
+- Multiplication (*)
+- Division (/)
+- Modulus (%)
+- Power (^)
 
 ### Mathematical Functions:
-- **Square Root (r)**
-- **Logarithm (base 10) (l)**
+- Square Root (r)
+- Logarithm (base 10) (l)
 
 ### Trigonometric Operations (input in degrees):**
-  - **Sine (s)**
-  - **Cosine (c)**
-  - **Tangent (t)**
-  - **Cotangent (o)**
-  - **Secant (e)**
-  - **Cosecant (q)**
+  - Sine (s)
+  - Cosine (c)
+  - Tangent (t)
+  - Cotangent (o)
+  - Secant (e)
+  - Cosecant (q)
 
 ### Factorial:
-- **Factorial (!)**
+- Factorial (!)
 
 ### Exit the Calculator:
-- **Exit (x)**
+- Exit (x)
 
 ## How to Use
 
