@@ -2,6 +2,10 @@
 
 This program is a Scientific Calculator written in C that supports a variety of mathematical operations, input validation, and error handling. It allows users to perform basic arithmetic operations, power calculations, square roots, logarithms, trigonometric functions, and more, while also handling edge cases like division by zero, negative square roots, and invalid input.
 
+## Note  
+
+The encrypted file (intended for personal use) is secured using [hat.sh](https://hat.sh/) for accessibility and security. It features inline logic, generic error messages, and simplified input validation. Designed for compactness and slightly improved performance, it is best suited when brevity is prioritized over detailed handling.    
+
 ## Table of Contents
 1. [Compiler Compatibility](#compiler-compatibility)
 2. [Features](#features)
