@@ -4,7 +4,7 @@ This program is a Scientific Calculator written in C that supports a variety of 
 
 ## Note  
 
-The encrypted file (intended for personal use) is secured using [hat.sh](https://hat.sh/) for accessibility and security. It features inline logic, generic error messages, and simplified input validation. Designed for compactness and slightly improved performance, it is best suited when brevity is prioritized over detailed handling.    
+The optimised version features inline logic, generic error messages, and simplified input validation. Designed for compactness and slightly improved performance, it is best suited when brevity is prioritized over detailed handling.    
 
 ## Table of Contents
 1. [Compiler Compatibility](#compiler-compatibility)
